@@ -19,8 +19,4 @@ def sugar_delivery(N: int) -> int:
         min = -1
     return min
 
-print(sugar_delivery(18))
-print(sugar_delivery(4))
-print(sugar_delivery(6))
-print(sugar_delivery(9))
-print(sugar_delivery(11))
+print(sugar_delivery(int(input())))

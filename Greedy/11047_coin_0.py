@@ -10,4 +10,22 @@
 (1 ≤ Ai ≤ 1,000,000, A1 = 1, i ≥ 2인 경우에 Ai는 Ai-1의 배수)
 '''
 def coin(N: int, K: int, Ai: list) -> int:
-    pass
+    #pass
+    #print(N, K)
+    min = 0 # 동전 개수의 최소값
+    Ai.sort(reverse=True) # 제일 큰 단위가 맨앞에 오도록
+    #print(Ai)
+    for a in Ai:
+        if K//a != 0: # a 단위의 동전으로 K값 나타낼수 있으면
+            min += K//a # 동전 개수
+            K -= (K//a)*a
+            #print(K)
+        if K == 0:
+            return min
+
+
+[N, K] = list(map(int, input().split(" ")))
+Ai = []
+for i in range(N):
+    Ai.append(int(input()))
+print(coin(N, K, Ai))

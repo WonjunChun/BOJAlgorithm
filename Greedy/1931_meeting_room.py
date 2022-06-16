@@ -18,16 +18,15 @@ def meeting_room(N: int, meet_info: list) -> int:
     prev_end_time = 0 # 이전 회의가 끝난 시간
     meet_info.sort(key=lambda x: x[0])
     meet_info.sort(key=lambda x: x[1]) #일찍 끝나는 시간 순으로 정렬
-    print(meet_info)
+
     meet_list = []
 
     for i in range(N):
-        if meet_info[i][0] > prev_end_time: # 시작시간이 이전 회의의 끝나는 시간보다 이후이면
-            #print(i)
-            #print(meet_info[i])
+        if meet_info[i][0] >= prev_end_time: # 시작시간이 이전 회의의 끝나는 시간보다 이후이면
+
             meet_list.append(meet_info[i])
             prev_end_time = meet_info[i][1]
-    #print(meet_list)
+
     return len(meet_list)
 
 N = int(input())
@@ -35,5 +34,3 @@ meet_info = []
 for i in range(N):
     meet_info.append(list(map(int, input().split(" "))))
 print(meeting_room(N, meet_info))
-
-# 어느 case가 틀렸는지 못찾겠음...
